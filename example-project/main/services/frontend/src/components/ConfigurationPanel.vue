@@ -16,6 +16,7 @@
                       label="Select a category"
                       dense
                       v-model="categories.selectedValue"
+                      @change="changeCategory"
                   ></v-select>
               </v-col>
             </v-row>
@@ -31,6 +32,7 @@
                       label="Select a company"
                       dense
                       v-model="companies.selectedValue"
+                      @change="changeCompany"
                   ></v-select>
               </v-col>
             </v-row>
@@ -41,6 +43,7 @@
                       label="Select an algorithm"
                       dense
                       v-model="algorithm.selectedValue"
+                      @change="changeAlgorithm"
                   ></v-select>
               </v-col>
             </v-row>
@@ -48,10 +51,12 @@
           </v-card>
         </v-col>
         <v-col cols="12" md="5">
-          <ScatterPlot/>
+          <ScatterPlot :key="scatterPlotId" :selectedCategory="categories.selectedValue" @changeCurrentlySelectedCompany="changeCurrentlySelectedCompany"/>
         </v-col>
         <v-col cols="12" md="5">
-          <LinePlot/>
+          <LinePlot :key="linePlotId"
+            :selectedCompany="companies.selectedValue"
+            :selectedAlgorithm="algorithm.selectedValue"/>
         </v-col>
       </v-row>
     </v-container>
