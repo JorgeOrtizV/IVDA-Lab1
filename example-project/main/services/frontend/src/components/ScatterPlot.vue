@@ -120,6 +120,8 @@ export default {
     selectedCategory: function () {
     this.ScatterPlotData.x = [];
     this.ScatterPlotData.y = [];
+    this.ScatterPlotData.color =[];
+    this.ScatterPlotData.category =[];
 
         this.fetchData();
     }

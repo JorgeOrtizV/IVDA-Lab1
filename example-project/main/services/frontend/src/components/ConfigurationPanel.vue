@@ -113,14 +113,14 @@ export default {
   display: flex;
   font-weight: 500;
   height: 50px;
-  background-color:  #a9c4f8;
+  background-color:  #ceeffa;
 }
 .sideBar {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   background: #fafafa;
   padding-left: 17px;
   height: calc(100vh - 50px);
-  background-color: #ceeffa; 
+  background-color: #a9c4f8; 
 }
 </style>
 

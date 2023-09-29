@@ -41,7 +41,10 @@ export default {
       var trace1 = {
         x: this.LinePlotData.x,
         y: this.LinePlotData.y,
-        type: 'scatter'
+        type: 'scatter',
+        line:{
+          color: 'blue'
+        }
       };
 
       var data = [trace1];
@@ -64,8 +67,22 @@ export default {
         }
       }
       var config = {responsive: true, displayModeBar: false}
-      Plotly.newPlot('myLinePlot', data, layout, config);
+      
+      if(this.$props.selectedAlgorithm == "regression" || this.$props.selectedAlgorithm == "random"){
+        var trace2 = {
+          x:this.LinePlotData.x.slice(0,2),
+          y:this.LinePlotData.y.slice(0,2),
+          type: 'scatter',
+          name: 'Prediction',
+          line:{
+            color: 'red'
+          }
+        }
+        trace1.name = "Database values";
 
+        data = [trace1, trace2]
+      }
+      Plotly.newPlot('myLinePlot', data, layout, config);
     }
   },
   watch: {
