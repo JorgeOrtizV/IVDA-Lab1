@@ -45,7 +45,24 @@ export default {
       };
 
       var data = [trace1];
-      var layout = {}
+      var layout = {
+        xaxis: {
+          title: '<b>Year</b>',
+          font: {
+            family: 'Courier New, monospace',
+            size: 24,
+            color: '#000000'
+          }
+        },
+        yaxis: {
+          title: '<b>Profit (USD)</b>',
+          font: {
+            family: 'Courier New, monospace',
+            size: 24,
+            color: '#000000'
+          }
+        }
+      }
       var config = {responsive: true, displayModeBar: false}
       Plotly.newPlot('myLinePlot', data, layout, config);
 

@@ -18,7 +18,7 @@ export default {
     "selectedCategory"
   ],
   data: () => ({
-    ScatterPlotData: {x: [], y: [], name: []},
+    ScatterPlotData: {x: [], y: [], name: [], category: [], color: []},
   }),
   mounted() {
     this.fetchData()
@@ -36,24 +36,44 @@ export default {
         this.ScatterPlotData.name.push(company.name)
         this.ScatterPlotData.x.push(company.employees)
         this.ScatterPlotData.y.push(company.founding_year)
+        this.ScatterPlotData.category.push(company.category)
       })
+      // Assign colors based on category
+      this.segmentation()
       // after the data is loaded, draw the plot
       this.drawScatterPlot()
     },
     drawScatterPlot() {
       var trace1 = {
-        x: this.ScatterPlotData.x,
-        y: this.ScatterPlotData.y,
+        x: this.ScatterPlotData.y,
+        y: this.ScatterPlotData.x,
         mode: 'markers',
         type: 'scatter',
         text: this.ScatterPlotData.name,
         marker: {
-          color: 'black',
+          color: this.ScatterPlotData.color,
           size: 12
         }
       };
       var data = [trace1];
-      var layout = {}
+      var layout = {
+        xaxis: {
+          title: '<b>Founding year</b>',
+          font: {
+            family: 'Courier New, monospace',
+            size: 24,
+            color: '#000000'
+          }
+        },
+        yaxis: {
+          title: '<b>Number of employees</b>',
+          font: {
+            family: 'Courier New, monospace',
+            size: 24,
+            color: '#000000'
+          }
+        }
+      }
       var config = {responsive: true, displayModeBar: false}
       Plotly.newPlot('myScatterPlot', data, layout, config);
       this.clickScatterPlot()
@@ -83,8 +103,18 @@ export default {
           Plotly.restyle('myScatterPlot', update);
         }
       });
+    },
+    segmentation(){
+      for(let i=0; i<this.ScatterPlotData.name.length; i++){
+        if(this.ScatterPlotData.category[i] == "tech"){
+          this.ScatterPlotData.color.push('green');
+        }else if(this.ScatterPlotData.category[i] == "health"){
+          this.ScatterPlotData.color.push('blue');
+        }else{
+          this.ScatterPlotData.color.push('red');
+        }
+      }
     }
-   
   },
   watch: {
     selectedCategory: function () {

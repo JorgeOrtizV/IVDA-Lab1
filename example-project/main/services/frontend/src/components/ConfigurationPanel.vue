@@ -3,15 +3,15 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" md="2" class="sideBar">
-          <v-card>
+          <v-card class="background_panel">
             <v-row>
               <v-col cols="12" sm="12">
-                <div class="control-panel-font">Company Overview</div>
+                <div class="control-panel-font">&nbspCompany Overview</div>
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="12" sm="12">
-                  <v-select
+              <v-col cols="10" sm="12">
+                  <v-select class="select_box"
                       :items="categories.values"
                       label="Select a category"
                       dense
@@ -22,12 +22,12 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="12">
-                  <div class="control-panel-font">Profit View of Company</div>
+                  <div class="control-panel-font">&nbspProfit View of Company</div>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" sm="12">
-                  <v-select
+                  <v-select class="select_box"
                       :items="companies.values"
                       label="Select a company"
                       dense
@@ -38,7 +38,7 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="12">
-                  <v-select
+                  <v-select class="select_box"
                       :items="algorithm.values"
                       label="Select an algorithm"
                       dense
@@ -106,18 +106,21 @@ export default {
 <style scoped>
 .control-panel-font {
   font-family: "Open Sans", verdana, arial, sans-serif;
+  font-weight: bold;
   align-items: center;
-  font-size: 15px;
+  font-size: 18px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   font-weight: 500;
-  height: 40px;
+  height: 50px;
+  background-color:  #a9c4f8;
 }
 .sideBar {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   background: #fafafa;
   padding-left: 17px;
   height: calc(100vh - 50px);
+  background-color: #ceeffa; 
 }
 </style>
 

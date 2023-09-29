@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <h2>Example Project</h2>
+      <h2>Jorge Alejandro Ortiz Valerio, 23-743-958</h2>
     </v-app-bar>
     <v-main>
       <ConfigurationPanel/>
@@ -36,22 +36,5 @@ export default {
     linePlotId: 0,
   }),
 
-  methods: {
-  changeCategory() {
-        this.scatterPlotId += 1
-      },
-
-  changeCompany() {
-        this.linePlotId += 1
-      },
-  changeAlgorithm() {
-        this.linePlotId += 1
-      },
-  changeCurrentlySelectedCompany(companyId) {
-        this.companies.selectedValue = companyId
-        this.changeCompany()
-      },
-  
-  },
 }
 </script>
