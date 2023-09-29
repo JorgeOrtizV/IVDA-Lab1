@@ -24,12 +24,13 @@ export default {
     async fetchData() {
       // req URL to retrieve single company from backend
       var reqUrl = 'http://127.0.0.1:5000/companies/' + this.$props.companyIdx + '?algorithm=none'
-      console.log("ReqURL " + reqUrl)
+      console.log("ReqURL BarPlot " + reqUrl)
       // await response and data
       const response = await fetch(reqUrl)
       const responseData = await response.json();
       // transform data to usable by Barplot
       this.BarPlotData.company.push(responseData.employees)
+      console.log(this.BarPlotData.company)
 
       var reqUrl_2 = 'http://127.0.0.1:5000/companies?category=' + this.$props.selectedCategory
       console.log("ReqURL " + reqUrl_2)
@@ -49,8 +50,8 @@ export default {
       var average = sum/this.BarPlotData.companies.length;
       
       var trace1 = {
-        x: [this.$props.selectedCompany, "Average", "Total"],
-        y: [this.BarPlotData.company, average, sum],
+        x: [this.$props.selectedCompany, 'Average', 'Total'],
+        y: [this.BarPlotData.company[0], average, sum],
         marker:{
             color:['orange', 'green', 'blue']
         },
