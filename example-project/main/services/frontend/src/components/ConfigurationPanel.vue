@@ -59,6 +59,11 @@
             :companyIdx="this.companies.values.indexOf(this.companies.selectedValue)+1"
             :selectedAlgorithm="algorithm.selectedValue"/>
         </v-col>
+        <v-col cols="12" md="5">
+          <BarPlot :key="barPlotId" :selectedCategory="categories.selectedValue" 
+                    :selectedCompany="companies.selectedValue"
+                    :companyIdx="this.companies.values.indexOf(this.companies.selectedValue)+1"/>
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -67,8 +72,9 @@
 <script>
 import ScatterPlot from './ScatterPlot';
 import LinePlot from './LinePlot';
+import BarPlot from './BarPlot';
 export default {
-  components: {ScatterPlot, LinePlot},
+  components: {ScatterPlot, LinePlot, BarPlot},
   data: () => ({
     categories: {
       values: ['All', 'tech', 'health', 'bank'],
