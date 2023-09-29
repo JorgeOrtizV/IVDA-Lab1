@@ -99,13 +99,12 @@ export default {
 
   changeCompany() {
         this.linePlotId += 1
-        this.companies.index=this.companies.values.indexOf("apple")
       },
   changeAlgorithm() {
         this.linePlotId += 1
       },
   changeCurrentlySelectedCompany(companyId) {
-        this.companies.selectedValue = companyId
+        this.companies.selectedValue = this.companies.values[companyId-1]
         this.changeCompany()
       },
   
