@@ -91,7 +91,6 @@ export default {
     this.fetchData();
     },
     selectedCategory: function () {
-    this.ScatterPlotData.x = [];
     this.BarPlotData.company = [];
     this.BarPlotData.companies = [];
 
