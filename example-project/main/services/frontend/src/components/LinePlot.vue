@@ -13,7 +13,7 @@
 import Plotly from 'plotly.js/dist/plotly';
 export default {
   name: 'LinePlot',
-  props: ["selectedCompany", "selectedAlgorithm"],
+  props: ["selectedCompany", "selectedAlgorithm", "companyIdx"],
   data: () => ({
     LinePlotData: {x: [], y: []}
   }),
@@ -23,7 +23,7 @@ export default {
   methods: {
     async fetchData() {
       // req URL to retrieve single company from backend
-      var reqUrl = 'http://127.0.0.1:5000/companies/' + this.$props.selectedCompany + '?algorithm=' + this.$props.selectedAlgorithm
+      var reqUrl = 'http://127.0.0.1:5000/companies/' + this.$props.companyIdx + '?algorithm=' + this.$props.selectedAlgorithm
       console.log("ReqURL " + reqUrl)
       // await response and data
       const response = await fetch(reqUrl)

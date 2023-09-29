@@ -56,6 +56,7 @@
         <v-col cols="12" md="5">
           <LinePlot :key="linePlotId"
             :selectedCompany="companies.selectedValue"
+            :companyIdx="this.companies.values.indexOf(this.companies.selectedValue)+1"
             :selectedAlgorithm="algorithm.selectedValue"/>
         </v-col>
       </v-row>
@@ -74,8 +75,10 @@ export default {
       selectedValue: 'All'
     },
     companies: {
-      values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-      selectedValue: 1
+      values: ['alphabet', 'apple', 'amazon','microsoft','meta','united health', 'johnson and johnson','pfizer','cvs health', 'mckesson','ubs','credit suisse', 'jp morgan', 'goldman sachs', 'bank of america'],
+      selectedValue: 'alphabet',
+      companyIdx: 1
+      //companyIdx : this.values.indexOf(this.selectedValue)
     },
     algorithm: {
       values: ['none', 'random', 'regression'],
@@ -90,6 +93,7 @@ export default {
 
   changeCompany() {
         this.linePlotId += 1
+        this.companies.index=this.companies.values.indexOf("apple")
       },
   changeAlgorithm() {
         this.linePlotId += 1
