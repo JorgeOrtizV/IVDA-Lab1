@@ -33,7 +33,8 @@ export default {
 
   data: () => ({
     scatterPlotId: 0,
-    linePlotId: 0
+    linePlotId: 0,
+    barPlotId: 0
   }),
 
 }
